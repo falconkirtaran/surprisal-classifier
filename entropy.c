@@ -7,13 +7,13 @@
  
 #define MAXLEN 20UL*1024*1024 //maximum string length
  
-void makehist(unsigned char *S,int *charfreq,int len){
+void makehistogram(unsigned char* S, int* charfreq, int len){
 	int i = 0;
 	for(i=0;i<256;i++)charfreq[i]=0;
 	for(i=0;i<len;i++) charfreq[S[i]]++;
 }
  
-double entropy(unsigned char* S,int *charfreq,int len){
+double entropy(unsigned char* S, int* charfreq, int len){
 	int i;
 	double H = 0.0;
 	for(i=0;i<len;i++){
@@ -38,7 +38,7 @@ int main(void){
             len++;
         }
 	int charfreq[256];
-	makehist(S,charfreq,len);
+	makehistogram(S,charfreq,len);
 	double H=entropy(S,charfreq,len);
 	printf("Total: %lf\n",H);
         printf(" Rate: %lf\n",H/len);
